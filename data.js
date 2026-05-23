@@ -15,7 +15,7 @@ const TRIP = {
           icon: "✈️",
           title: "일본 도착 · 입국심사",
           detail: "간사이 국제공항 도착 후 입국심사 및 짐 수령",
-          mapUrl: "googleusercontent.com/maps.google.com/2",
+          mapUrl: "https://maps.google.com/maps?q=간사이+국제공항",
           info: {
             label: "이동 정보",
             items: [
@@ -178,7 +178,7 @@ const TRIP = {
           icon: "🚃",
           title: "무기토멘스케로 출발",
           detail: "지하철 약 35~40분",
-          mapUrl: "googleusercontent.com/maps.google.com/2",
+          mapUrl: "https://maps.google.com/maps?q=麦と麺助+大阪+梅田",
           info: {
             label: "이동 정보",
             items: [
@@ -194,7 +194,7 @@ const TRIP = {
           icon: "🍜",
           title: "무기토멘스케 웨이팅 & 식사",
           detail: "우동 맛집",
-          mapUrl: "googleusercontent.com/maps.google.com/2",
+          mapUrl: "https://maps.google.com/maps?q=麦と麺助+大阪+梅田",
           info: {
             label: "식당 정보",
             items: [
@@ -334,7 +334,7 @@ const TRIP = {
           icon: "🚃",
           title: "오사카 → 교토 이동",
           detail: "JR 신쾌속 약 50~60분",
-          mapUrl: "googleusercontent.com/maps.google.com/3",
+          mapUrl: "https://maps.google.com/maps?q=교토역",
           info: {
             label: "이동 정보",
             items: [
@@ -541,7 +541,7 @@ const TRIP = {
           icon: "🚌",
           title: "청수사 출발 이동",
           detail: "버스/도보 약 35~45분",
-          mapUrl: "googleusercontent.com/maps.google.com/3",
+          mapUrl: "https://maps.google.com/maps?q=清水寺+京都",
           info: {
             label: "이동 정보",
             items: [
