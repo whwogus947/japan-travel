@@ -31,7 +31,7 @@ const TRIP = {
           icon: "🍴",
           title: "점심 · 고기로바타 솥밥집",
           detail: "일본 전통 솥밥 & 로바타야키",
-          mapUrl: "https://maps.app.goo.gl/XCuT7vssTixbJVyC8",
+          mapUrl: "https://maps.app.goo.gl/XCuT7vssTixbJVyC8?g_st=ic",
           info: {
             label: "식당 정보",
             items: [
@@ -144,7 +144,7 @@ const TRIP = {
           icon: "🍢",
           title: "스미야키 이자카야 (예약)",
           detail: "숯불구이 이자카야 저녁",
-          mapUrl: "https://maps.app.goo.gl/1X1WfkzEWTYGGhUx9",
+          mapUrl: "https://maps.app.goo.gl/1X1WfkzEWTYGGhUx9?g_st=ic",
           info: {
             label: "식당 정보",
             items: [

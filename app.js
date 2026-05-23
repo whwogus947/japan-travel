@@ -317,8 +317,13 @@ function renderDay(idx) {
     if (isClickable) {
       row.style.cursor = 'pointer';
       row.addEventListener('click', () => {
-        if (hasInfo) openModal(item, day);
-        else if (hasMap) window.open(item.mapUrl, '_blank', 'noopener');
+        if (item.category === 'hotel' && item.mapUrl) {
+          window.open(item.mapUrl, '_blank', 'noopener');
+        } else if (hasInfo) {
+          openModal(item, day);
+        } else if (hasMap) {
+          window.open(item.mapUrl, '_blank', 'noopener');
+        }
       });
     }
 
