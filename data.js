@@ -31,7 +31,7 @@ const TRIP = {
           icon: "🍴",
           title: "점심 · 고기로바타 솥밥집",
           detail: "일본 전통 솥밥 & 로바타야키",
-          mapUrl: "https://maps.google.com/maps?q=고기로바타+솥밥+오사카+난바",
+          mapUrl: "https://maps.app.goo.gl/XCuT7vssTixbJVyC8",
           info: {
             label: "식당 정보",
             items: [
@@ -47,7 +47,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 이동 · 체크인",
           detail: "숙소 체크인 & 짐 정리",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카+호텔",
+          mapUrl: "https://maps.app.goo.gl/vj2sszskqTGBNdGL7",
           info: {
             label: "이동 정보",
             items: [
@@ -144,7 +144,7 @@ const TRIP = {
           icon: "🍢",
           title: "스미야키 이자카야 (예약)",
           detail: "숯불구이 이자카야 저녁",
-          mapUrl: "https://maps.google.com/maps?q=스미야키+이자카야+오사카+난바",
+          mapUrl: "https://maps.app.goo.gl/1X1WfkzEWTYGGhUx9",
           info: {
             label: "식당 정보",
             items: [
@@ -368,7 +368,7 @@ const TRIP = {
           icon: "🏨",
           title: "교토 숙소 체크인 & 짐 정리",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
           info: null
         },
         {
@@ -590,7 +590,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식 및 준비",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
           info: null
         },
         {
@@ -680,7 +680,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
           info: null
         },
         {

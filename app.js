@@ -53,6 +53,13 @@ window.addEventListener('load', () => {
 });
 
 function init() {
+  // Set chiikawa images once loaded
+  const splashImg = document.getElementById('splash-img');
+  if (splashImg && window.CHIIKAWA_IMGS) splashImg.src = CHIIKAWA_IMGS.img2;
+
+  const headerImg = document.getElementById('header-mascot-img');
+  if (headerImg && window.CHIIKAWA_IMGS) headerImg.src = CHIIKAWA_IMGS.img2;
+
   buildTabs();
   updateCountdown();
   setInterval(updateCountdown, 60000);
@@ -85,6 +92,16 @@ function updateCountdown() {
 }
 
 /* ── tabs ── */
+// Chiikawa images per tab: cycle through img1(pink/angry), img2(green/happy), img3(trio)
+// We'll use img1 for odd days, img2 for even, img3 for last day
+const TAB_IMGS = [
+  { src: () => CHIIKAWA_IMGS?.img2, label: '치이카와' },
+  { src: () => CHIIKAWA_IMGS?.img1, label: '치이카와' },
+  { src: () => CHIIKAWA_IMGS?.img2, label: '치이카와' },
+  { src: () => CHIIKAWA_IMGS?.img1, label: '치이카와' },
+  { src: () => CHIIKAWA_IMGS?.img3, label: '치이카와' },
+];
+
 function buildTabs() {
   const container = $('day-tabs');
   const today = todayStr();
@@ -94,11 +111,19 @@ function buildTabs() {
     const btn = document.createElement('button');
     btn.className = 'tab' + (isToday ? ' today' : '');
     btn.dataset.idx = i;
+
+    const tabImg = TAB_IMGS[i % TAB_IMGS.length];
     btn.innerHTML = `
-      <span class="tab-emoji">${day.emoji}</span>
+      <img class="tab-chiikawa-img" src="" alt="${tabImg.label}" />
       <span class="tab-day">${day.day}일차</span>
       <span class="tab-date">${d.getMonth()+1}/${d.getDate()}${isToday ? ' 🔴' : ''}</span>
     `;
+    // Set src after insert (CHIIKAWA_IMGS may load after)
+    const imgEl = btn.querySelector('.tab-chiikawa-img');
+    const setSrc = () => { if (window.CHIIKAWA_IMGS) imgEl.src = tabImg.src(); };
+    setSrc();
+    setTimeout(setSrc, 300);
+
     btn.addEventListener('click', () => {
       activeDay = i;
       setActiveTab(i);
@@ -135,6 +160,15 @@ function updateNowBanner() {
   if (current) {
     banner.classList.remove('hidden');
     nowTxt.textContent = `${current.icon} ${current.title}`;
+    // Add chiikawa img to banner if not there
+    const inner = banner.querySelector('.now-banner-inner');
+    if (inner && !inner.querySelector('.now-banner-chiikawa') && window.CHIIKAWA_IMGS) {
+      const img = document.createElement('img');
+      img.src = CHIIKAWA_IMGS.img2;
+      img.className = 'now-banner-chiikawa';
+      img.alt = '';
+      inner.appendChild(img);
+    }
   } else {
     banner.classList.add('hidden');
   }
@@ -147,6 +181,15 @@ const DAY_GRADIENTS = [
   'linear-gradient(135deg, #f8c8d4 0%, #e8a8e0 100%)',  // pink-lavender
   'linear-gradient(135deg, #f8e0a0 0%, #f0c8b0 100%)',  // cream-peach
   'linear-gradient(135deg, #d4c0f8 0%, #f8a8c8 100%)',  // violet-pink
+];
+
+// Which chiikawa img to use in day header
+const DAY_HEADER_IMGS = [
+  () => CHIIKAWA_IMGS?.img2,  // day1
+  () => CHIIKAWA_IMGS?.img1,  // day2
+  () => CHIIKAWA_IMGS?.img3,  // day3
+  () => CHIIKAWA_IMGS?.img1,  // day4
+  () => CHIIKAWA_IMGS?.img3,  // day5
 ];
 
 /* ── chiikawa category icons ── */
@@ -174,12 +217,14 @@ function renderDay(idx) {
   hCard.style.background = DAY_GRADIENTS[idx % DAY_GRADIENTS.length];
   hCard.style.color = '#fff';
 
+  const headerImgSrc = DAY_HEADER_IMGS[idx % DAY_HEADER_IMGS.length]?.() || '';
+
   hCard.innerHTML = `
-    <div class="day-sticker">${DAY_MASCOTS[idx % DAY_MASCOTS.length]}</div>
     <div class="dhc-emoji">${day.emoji}</div>
     <div class="dhc-day">✦ ${day.day}일차 ✦</div>
     <div class="dhc-label">${day.label}</div>
     <div class="dhc-date">${formatDateKo(day.date)}</div>
+    <img class="dhc-chiikawa" src="${headerImgSrc}" alt="치이카와" />
   `;
   content.appendChild(hCard);
 
@@ -195,8 +240,9 @@ function renderDay(idx) {
     }).length;
     const prog = document.createElement('div');
     prog.className = 'day-progress';
+    const progressImgSrc = window.CHIIKAWA_IMGS?.img2 || '';
     prog.innerHTML = `
-      <span class="progress-chibi">🐾</span>
+      <img src="${progressImgSrc}" class="progress-chibi" alt="" style="width:22px;height:22px;object-fit:contain;" />
       <div class="progress-track"><div class="progress-fill" style="width:${pct.toFixed(1)}%"></div></div>
       <div class="progress-label">${done}/${items.length}</div>
     `;
@@ -207,7 +253,20 @@ function renderDay(idx) {
   const tl = document.createElement('div');
   tl.className = 'timeline';
 
-  day.items.forEach(item => {
+  // Insert chiikawa divider every ~4 items
+  const dividerImg1 = window.CHIIKAWA_IMGS?.img1 || '';
+  const dividerImg2 = window.CHIIKAWA_IMGS?.img2 || '';
+
+  day.items.forEach((item, itemIdx) => {
+    // Insert cute divider every 4 items (not at start)
+    if (itemIdx > 0 && itemIdx % 4 === 0) {
+      const div = document.createElement('div');
+      div.className = 'tl-chiikawa-divider';
+      const dSrc = itemIdx % 8 === 0 ? dividerImg1 : dividerImg2;
+      div.innerHTML = `<img src="${dSrc}" alt="" />`;
+      tl.appendChild(div);
+    }
+
     const startMin = toMinutes(item.time);
     const endMin = item.endTime ? toMinutes(item.endTime) : startMin + 60;
     const isNow = isToday && nowMin >= startMin && nowMin < endMin;
@@ -224,7 +283,6 @@ function renderDay(idx) {
       transport: '이동', food: '맛있는 것', hotel: '숙소', tour: '관광', activity: '액티비티'
     };
 
-    // dot color - softer chiikawa palette
     const dotColors = {
       transport: '#90c0f0',
       food: '#90d0a8',
@@ -259,11 +317,8 @@ function renderDay(idx) {
     if (isClickable) {
       row.style.cursor = 'pointer';
       row.addEventListener('click', () => {
-        if (hasInfo) {
-          openModal(item, day);
-        } else if (hasMap) {
-          window.open(item.mapUrl, '_blank', 'noopener');
-        }
+        if (hasInfo) openModal(item, day);
+        else if (hasMap) window.open(item.mapUrl, '_blank', 'noopener');
       });
     }
 
@@ -310,6 +365,12 @@ function openModal(item, day) {
       </a>`
     : '';
 
+  const chiikawaTail = window.CHIIKAWA_IMGS
+    ? `<div style="text-align:center;margin-top:18px;opacity:0.5;">
+        <img src="${CHIIKAWA_IMGS.img2}" alt="" style="width:44px;height:44px;object-fit:contain;" />
+       </div>`
+    : '';
+
   body.innerHTML = `
     <div class="modal-handle"></div>
     <div class="modal-icon">${item.icon}</div>
@@ -318,6 +379,7 @@ function openModal(item, day) {
     ${item.detail ? `<div class="modal-detail">${item.detail}</div>` : ''}
     ${infoHtml}
     ${mapBtnHtml}
+    ${chiikawaTail}
   `;
 
   overlay.classList.remove('hidden');
