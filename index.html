@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0f0f0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>🇯🇵 오사카·교토 여행</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-flag">🇯🇵</div>
+    <div class="splash-title">오사카 · 교토</div>
+    <div class="splash-sub">쪼햄이 &amp; 소정이의 여행</div>
+    <div class="splash-dates">Jun 9 – 13, 2026</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="header-top">
+      <div class="header-left">
+        <div class="header-flag">🇯🇵</div>
+        <div>
+          <div class="header-title">오사카 · 교토</div>
+          <div class="header-sub" id="header-countdown"></div>
+        </div>
+      </div>
+      <button class="now-btn" id="now-btn" onclick="scrollToNow()">지금</button>
+    </div>
+  </header>
+
+  <!-- NOW BANNER -->
+  <div id="now-banner" class="hidden">
+    <div class="now-banner-inner">
+      <div class="now-dot"></div>
+      <div>
+        <div class="now-label">지금 해야 할 일</div>
+        <div class="now-text" id="now-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY TABS -->
+  <div id="day-tabs-wrap">
+    <div id="day-tabs"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <main id="content"></main>
+
+</div>
+
+<!-- DETAIL MODAL -->
+<div id="modal-overlay" class="hidden" onclick="closeModal()">
+  <div id="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
