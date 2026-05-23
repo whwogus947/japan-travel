@@ -2,7 +2,6 @@
 const $ = id => document.getElementById(id);
 
 const DAY_LABELS = ['일','월','화','수','목','금','토'];
-const MONTH_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function parseDate(str) {
   const [y,m,d] = str.split('-').map(Number);
@@ -191,6 +190,8 @@ function renderDay(idx) {
     const isNow = isToday && nowMin >= startMin && nowMin < endMin;
     const isPast = isToday && nowMin >= endMin;
     const hasInfo = !!item.info;
+    const hasMap = !!item.mapUrl;
+    const isClickable = hasInfo || hasMap;
 
     const row = document.createElement('div');
     row.className = `tl-item${isNow ? ' now-item' : ''}${isPast ? ' past-item' : ''}`;
@@ -212,16 +213,24 @@ function renderDay(idx) {
             <div class="tl-title">${item.title}</div>
             ${item.detail ? `<div class="tl-detail">${item.detail}</div>` : ''}
           </div>
-          ${hasInfo ? '<span class="tl-arrow">›</span>' : ''}
+          ${hasInfo ? '<span class="tl-arrow">›</span>' : (hasMap ? '<span class="tl-map-icon">📍</span>' : '')}
         </div>
         <div class="tl-tags">
           <span class="tl-tag tag-${item.category}">${tagMap[item.category]||item.category}</span>
+          ${hasMap ? '<span class="tl-tag tag-map">지도</span>' : ''}
         </div>
       </div>
     `;
 
-    if (hasInfo) {
-      row.addEventListener('click', () => openModal(item, day));
+    if (isClickable) {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', () => {
+        if (hasInfo) {
+          openModal(item, day);
+        } else if (hasMap) {
+          window.open(item.mapUrl, '_blank', 'noopener');
+        }
+      });
     }
 
     tl.appendChild(row);
@@ -247,9 +256,6 @@ function openModal(item, day) {
   const overlay = $('modal-overlay');
   const body = $('modal-body');
 
-  const mapQuery = encodeURIComponent(item.title + ' ' + (item.detail || '') + ' 일본');
-  const mapUrl = `https://maps.google.com/maps?q=${mapQuery}`;
-
   let infoHtml = '';
   if (item.info) {
     infoHtml = `
@@ -264,6 +270,12 @@ function openModal(item, day) {
 
   const endTimeHtml = item.endTime ? ` → ${item.endTime}` : '';
 
+  const mapBtnHtml = item.mapUrl
+    ? `<a class="modal-map-btn" href="${item.mapUrl}" target="_blank" rel="noopener">
+        <span>📍</span> Google Maps에서 찾기
+      </a>`
+    : '';
+
   body.innerHTML = `
     <div class="modal-handle"></div>
     <div class="modal-icon">${item.icon}</div>
@@ -271,9 +283,7 @@ function openModal(item, day) {
     <div class="modal-title">${item.title}</div>
     ${item.detail ? `<div class="modal-detail">${item.detail}</div>` : ''}
     ${infoHtml}
-    <a class="modal-map-btn" href="${mapUrl}" target="_blank" rel="noopener">
-      <span>📍</span> Google Maps에서 찾기
-    </a>
+    ${mapBtnHtml}
   `;
 
   overlay.classList.remove('hidden');
