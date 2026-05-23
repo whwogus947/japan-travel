@@ -15,7 +15,7 @@ const TRIP = {
           icon: "✈️",
           title: "일본 도착 · 입국심사",
           detail: "간사이 국제공항 도착 후 입국심사 및 짐 수령",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=간사이+국제공항",
           info: {
             label: "이동 정보",
             items: [
@@ -31,7 +31,7 @@ const TRIP = {
           icon: "🍴",
           title: "점심 · 고기로바타 솥밥집",
           detail: "일본 전통 솥밥 & 로바타야키",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=고기로바타+솥밥+오사카+난바",
           info: {
             label: "식당 정보",
             items: [
@@ -47,7 +47,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 이동 · 체크인",
           detail: "숙소 체크인 & 짐 정리",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카+호텔",
           info: {
             label: "이동 정보",
             items: [
@@ -62,7 +62,7 @@ const TRIP = {
           icon: "🛍️",
           title: "덴덴타운 · 난바파크스 · 도톤보리",
           detail: "가챠가챠의 숲 포함 자유 구경",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=도톤보리+오사카",
           info: {
             label: "관광 정보",
             items: [
@@ -79,7 +79,7 @@ const TRIP = {
           icon: "🚃",
           title: "소라니와 온천 이동",
           detail: "지하철 이동",
-          mapUrl: "https://maps.google.com/maps?q=Soraniwa+Onsen+Osaka+Bay+Tower",
+          mapUrl: "https://maps.google.com/maps?q=空庭温泉+OSAKA+BAY+TOWER",
           info: {
             label: "이동 정보",
             items: [
@@ -128,7 +128,7 @@ const TRIP = {
           icon: "🚃",
           title: "온천 → 숙소 복귀",
           detail: "이동 후 이자카야 출발",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: {
             label: "이동 정보",
             items: [
@@ -144,7 +144,7 @@ const TRIP = {
           icon: "🍢",
           title: "스미야키 이자카야 (예약)",
           detail: "숯불구이 이자카야 저녁",
-          mapUrl: "https://maps.app.goo.gl/2mEjNWw6UnqVdShi9",
+          mapUrl: "https://maps.google.com/maps?q=스미야키+이자카야+오사카+난바",
           info: {
             label: "식당 정보",
             items: [
@@ -160,7 +160,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: null
         }
       ]
@@ -178,7 +178,7 @@ const TRIP = {
           icon: "🚃",
           title: "무기토멘스케로 출발",
           detail: "지하철 약 35~40분",
-          mapUrl: "https://maps.google.com/maps?q=무기토멘스케+우메다+오사카",
+          mapUrl: "https://maps.google.com/maps?q=麦と麺助+大阪+梅田",
           info: {
             label: "이동 정보",
             items: [
@@ -210,7 +210,7 @@ const TRIP = {
           icon: "🛍️",
           title: "우메다 쇼핑",
           detail: "한큐백화점 · 루쿠아 · 그랜드프론트",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=우메다+한큐백화점+오사카",
           info: {
             label: "쇼핑 정보",
             items: [
@@ -227,7 +227,7 @@ const TRIP = {
           icon: "☕",
           title: "우메다 자유시간 · 카페",
           detail: "휴식",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=그랜드프론트+오사카+우메다",
           info: {
             label: "추천 카페",
             items: [
@@ -243,7 +243,7 @@ const TRIP = {
           icon: "🚃",
           title: "야키니쿠 고리짱 이동",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/2mEjNWw6UnqVdShi9",
+          mapUrl: "https://maps.google.com/maps?q=야키니쿠+고리짱+오사카",
           info: {
             label: "이동 정보",
             items: [
@@ -258,7 +258,7 @@ const TRIP = {
           icon: "🥩",
           title: "저녁 · 야키니쿠 고리짱",
           detail: "와규 야키니쿠",
-          mapUrl: "https://maps.app.goo.gl/2mEjNWw6UnqVdShi9",
+          mapUrl: "https://maps.google.com/maps?q=야키니쿠+고리짱+오사카",
           info: {
             label: "식당 정보",
             items: [
@@ -274,7 +274,7 @@ const TRIP = {
           icon: "🎡",
           title: "햅파이브 관람차 & 우메다 야경",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=헵파이브+관람차+오사카+우메다",
           info: {
             label: "관광 정보",
             items: [
@@ -290,7 +290,7 @@ const TRIP = {
           icon: "🚃",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: null
         },
         {
@@ -299,7 +299,7 @@ const TRIP = {
           icon: "🌃",
           title: "선택 일정 · 신세카이 밤산책",
           detail: "숙소 ↔ 신세카이 도보 15~20분",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=신세카이+츠텐카쿠+오사카",
           info: {
             label: "관광 정보",
             items: [
@@ -316,7 +316,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: null
         }
       ]
@@ -351,7 +351,7 @@ const TRIP = {
           icon: "🍣",
           title: "점심 · 교토 센료 초밥 오마카세",
           detail: "교토역 도보 1분",
-          mapUrl: "https://maps.app.goo.gl/3endev7XfQEkEywy6",
+          mapUrl: "https://maps.google.com/maps?q=京都+千両+寿司+京都駅",
           info: {
             label: "식당 정보",
             items: [
@@ -368,7 +368,7 @@ const TRIP = {
           icon: "🏨",
           title: "교토 숙소 체크인 & 짐 정리",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
           info: null
         },
         {
@@ -394,7 +394,7 @@ const TRIP = {
           icon: "🏯",
           title: "산젠인 관광",
           detail: "교토 오하라의 천년 고찰",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=三千院+大原+京都",
           info: {
             label: "관광 정보",
             items: [
@@ -410,7 +410,7 @@ const TRIP = {
           icon: "🏯",
           title: "호센인 관광",
           detail: "오하라 소재 정원 절",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=宝泉院+大原+京都",
           info: {
             label: "관광 정보",
             items: [
@@ -426,7 +426,7 @@ const TRIP = {
           icon: "🚶",
           title: "오하라 거리 산책",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=大原+京都",
           info: {
             label: "추천",
             items: [
@@ -458,7 +458,7 @@ const TRIP = {
           icon: "🌅",
           title: "가모강 일몰 감상",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=鴨川+京都",
           info: {
             label: "장소 정보",
             items: [
@@ -474,7 +474,7 @@ const TRIP = {
           icon: "🍳",
           title: "저녁 · 카메쨩",
           detail: "오코노미야끼 · 야끼소바",
-          mapUrl: "https://maps.app.goo.gl/3endev7XfQEkEywy6",
+          mapUrl: "https://maps.google.com/maps?q=かめちゃん+お好み焼き+京都",
           info: {
             label: "식당 정보",
             items: [
@@ -490,7 +490,7 @@ const TRIP = {
           icon: "🛍️",
           title: "쇼핑 · 신쿄고쿠 · 테라마치 · SOU·SOU",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=新京極+寺町+京都",
           info: {
             label: "쇼핑 정보",
             items: [
@@ -507,7 +507,7 @@ const TRIP = {
           icon: "🛒",
           title: "마트 장보기",
           detail: "Gyōmu Super Shijo Teramachi",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=業務スーパー+四条寺町+京都",
           info: {
             label: "마트 정보",
             items: [
@@ -523,7 +523,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: null
         }
       ]
@@ -541,7 +541,7 @@ const TRIP = {
           icon: "🚌",
           title: "청수사 출발 이동",
           detail: "버스/도보 약 35~45분",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=清水寺+京都",
           info: {
             label: "이동 정보",
             items: [
@@ -557,7 +557,7 @@ const TRIP = {
           icon: "🏯",
           title: "청수사 & 산넨자카 · 니넨자카",
           detail: "세계문화유산",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=清水寺+産寧坂+京都",
           info: {
             label: "관광 정보",
             items: [
@@ -575,7 +575,7 @@ const TRIP = {
           icon: "🚍",
           title: "숙소 복귀",
           detail: "버스 약 35~40분",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
           info: {
             label: "이동 정보",
             items: [
@@ -590,7 +590,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식 및 준비",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
           info: null
         },
         {
@@ -599,7 +599,7 @@ const TRIP = {
           icon: "🚃",
           title: "오미하치만 출발",
           detail: "JR + 버스 약 1시간 20분",
-          mapUrl: "https://maps.google.com/maps?q=近江八幡+滋賀",
+          mapUrl: "https://maps.google.com/maps?q=近江八幡駅+滋賀",
           info: {
             label: "⚠️ 정각 출발 필수",
             items: [
@@ -648,7 +648,7 @@ const TRIP = {
           icon: "🍰",
           title: "라코리나 근江八幡 방문",
           detail: "버터샌드·카스텔라로 유명한 클럽하리에",
-          mapUrl: "https://maps.google.com/maps?q=ラ・コリーナ近江八幡",
+          mapUrl: "https://maps.google.com/maps?q=ラコリーナ近江八幡",
           info: {
             label: "카페 정보",
             items: [
@@ -665,7 +665,7 @@ const TRIP = {
           icon: "🚃",
           title: "오미하치만 → 교토 숙소 복귀",
           detail: "JR 약 1시간 20분",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=교토역",
           info: {
             label: "이동 정보",
             items: [
@@ -680,7 +680,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=교토역+호텔",
           info: null
         },
         {
@@ -689,7 +689,7 @@ const TRIP = {
           icon: "🍖",
           title: "저녁 · 텐요우 야마시나",
           detail: "파 우설 (파 혀밑살)",
-          mapUrl: "https://maps.app.goo.gl/3endev7XfQEkEywy6",
+          mapUrl: "https://maps.google.com/maps?q=天葉+山科+京都+牛タン",
           info: {
             label: "식당 정보",
             items: [
@@ -714,7 +714,7 @@ const TRIP = {
           icon: "☕",
           title: "교토 마지막 일정 / 카페",
           detail: "못했던 것 마무리",
-          mapUrl: "https://maps.app.goo.gl/sPMTA3FPHfzX8mMj6",
+          mapUrl: "https://maps.google.com/maps?q=후시미이나리+교토",
           info: {
             label: "추천",
             items: [
@@ -747,7 +747,7 @@ const TRIP = {
           icon: "🍛",
           title: "점심 · 쿠사카 커리",
           detail: "오사카 난바 커리 맛집",
-          mapUrl: "https://maps.app.goo.gl/2mEjNWw6UnqVdShi9",
+          mapUrl: "https://maps.google.com/maps?q=草花+カレー+難波+大阪",
           info: {
             label: "식당 정보",
             items: [
@@ -763,7 +763,7 @@ const TRIP = {
           icon: "🛍️",
           title: "신사이바시 / 난바 마지막 쇼핑",
           detail: "돈키호테 · 드럭스토어 · 못했던 것",
-          mapUrl: "https://maps.app.goo.gl/vTJUFyZ7KDN96qnw6",
+          mapUrl: "https://maps.google.com/maps?q=신사이바시+돈키호테+오사카",
           info: {
             label: "쇼핑 정보",
             items: [
@@ -780,7 +780,7 @@ const TRIP = {
           icon: "🚃",
           title: "난카이 난바역 이동",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=난카이난바역",
+          mapUrl: "https://maps.google.com/maps?q=난카이+난바역+오사카",
           info: {
             label: "이동",
             items: [
@@ -795,7 +795,7 @@ const TRIP = {
           icon: "🚍",
           title: "공항으로 출발",
           detail: "라피트 약 34분 / 리무진버스 약 60분",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=간사이+국제공항",
           info: {
             label: "공항 이동",
             items: [
@@ -812,7 +812,7 @@ const TRIP = {
           icon: "✈️",
           title: "공항 도착 · 출국 준비",
           detail: "출국 수속 · 보안검색 · 탑승 대기",
-          mapUrl: "https://maps.app.goo.gl/a4BHF8viqoPFdDzp9",
+          mapUrl: "https://maps.google.com/maps?q=간사이+국제공항",
           info: {
             label: "출국 안내",
             items: [
