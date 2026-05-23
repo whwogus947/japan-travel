@@ -3,6 +3,9 @@ const $ = id => document.getElementById(id);
 
 const DAY_LABELS = ['일','월','화','수','목','금','토'];
 
+// Chiikawa character mascots for each day
+const DAY_MASCOTS = ['🐾', '🌸', '⭐', '🍡', '✈️'];
+
 function parseDate(str) {
   const [y,m,d] = str.split('-').map(Number);
   return new Date(y, m-1, d);
@@ -46,7 +49,7 @@ window.addEventListener('load', () => {
     $('app').classList.remove('hidden');
     $('app').classList.add('visible');
     init();
-  }, 2100);
+  }, 2200);
 });
 
 function init() {
@@ -73,11 +76,11 @@ function updateCountdown() {
   const today = todayStr();
   if (today >= TRIP.startDate && today <= TRIP.days[TRIP.days.length-1].date) {
     const dayIdx = TRIP.days.findIndex(d => d.date === today);
-    el.textContent = dayIdx >= 0 ? `여행 ${dayIdx+1}일차 진행 중` : '여행 중 ✈️';
+    el.textContent = dayIdx >= 0 ? `✦ 여행 ${dayIdx+1}일차 진행 중 ✦` : '여행 중 ✈️';
   } else if (diff > 0) {
-    el.textContent = `여행까지 D-${diff}`;
+    el.textContent = `두근두근 D-${diff} ♡`;
   } else {
-    el.textContent = '여행 완료 🎉';
+    el.textContent = '소중한 추억 🎉 여행 완료!';
   }
 }
 
@@ -137,6 +140,24 @@ function updateNowBanner() {
   }
 }
 
+/* ── day header gradients (chiikawa pastel palette) ── */
+const DAY_GRADIENTS = [
+  'linear-gradient(135deg, #b8d4f8 0%, #c8a8f0 100%)',  // blue-lilac
+  'linear-gradient(135deg, #a8e0c8 0%, #90c0f0 100%)',  // mint-blue
+  'linear-gradient(135deg, #f8c8d4 0%, #e8a8e0 100%)',  // pink-lavender
+  'linear-gradient(135deg, #f8e0a0 0%, #f0c8b0 100%)',  // cream-peach
+  'linear-gradient(135deg, #d4c0f8 0%, #f8a8c8 100%)',  // violet-pink
+];
+
+/* ── chiikawa category icons ── */
+const CAT_DECORATIONS = {
+  transport: '🚃',
+  food: '🍡',
+  hotel: '🏠',
+  tour: '🎀',
+  activity: '⭐'
+};
+
 /* ── render day ── */
 function renderDay(idx) {
   const day = TRIP.days[idx];
@@ -148,14 +169,15 @@ function renderDay(idx) {
   const nowMin = isToday ? nowMinutes() : -1;
 
   // Day header card
-  const d = parseDate(day.date);
   const hCard = document.createElement('div');
   hCard.className = 'day-header-card';
-  hCard.style.background = `linear-gradient(135deg, ${day.color}22, ${day.color}10)`;
-  hCard.style.borderLeft = `3px solid ${day.color}`;
+  hCard.style.background = DAY_GRADIENTS[idx % DAY_GRADIENTS.length];
+  hCard.style.color = '#fff';
+
   hCard.innerHTML = `
+    <div class="day-sticker">${DAY_MASCOTS[idx % DAY_MASCOTS.length]}</div>
     <div class="dhc-emoji">${day.emoji}</div>
-    <div class="dhc-day">${day.day}일차</div>
+    <div class="dhc-day">✦ ${day.day}일차 ✦</div>
     <div class="dhc-label">${day.label}</div>
     <div class="dhc-date">${formatDateKo(day.date)}</div>
   `;
@@ -174,6 +196,7 @@ function renderDay(idx) {
     const prog = document.createElement('div');
     prog.className = 'day-progress';
     prog.innerHTML = `
+      <span class="progress-chibi">🐾</span>
       <div class="progress-track"><div class="progress-fill" style="width:${pct.toFixed(1)}%"></div></div>
       <div class="progress-label">${done}/${items.length}</div>
     `;
@@ -195,18 +218,29 @@ function renderDay(idx) {
 
     const row = document.createElement('div');
     row.className = `tl-item${isNow ? ' now-item' : ''}${isPast ? ' past-item' : ''}`;
+    row.dataset.cat = item.category;
 
     const tagMap = {
-      transport: '이동', food: '식사', hotel: '숙소', tour: '관광', activity: '액티비티'
+      transport: '이동', food: '맛있는 것', hotel: '숙소', tour: '관광', activity: '액티비티'
     };
+
+    // dot color - softer chiikawa palette
+    const dotColors = {
+      transport: '#90c0f0',
+      food: '#90d0a8',
+      hotel: '#f5e090',
+      tour: '#c8a8f0',
+      activity: '#f0b870'
+    };
+    const dotColor = isNow ? '#f07090' : (dotColors[item.category] || '#c8a8f0');
 
     row.innerHTML = `
       <div class="tl-time-col"><span class="tl-time">${item.time}</span></div>
       <div class="tl-dot-col">
-        <div class="tl-dot" style="background:${isNow ? 'var(--now-color)' : day.color}; border-color: var(--bg);"></div>
+        <div class="tl-dot" style="background:${dotColor}; border-color: var(--bg);"></div>
       </div>
       <div class="tl-card${hasInfo ? ' tl-has-info' : ''}">
-        ${isNow ? '<div class="now-label-inline">● 진행 중</div>' : ''}
+        ${isNow ? '<div class="now-label-inline">진행 중</div>' : ''}
         <div class="tl-card-top">
           <span class="tl-icon">${item.icon}</span>
           <div class="tl-info">
@@ -217,7 +251,7 @@ function renderDay(idx) {
         </div>
         <div class="tl-tags">
           <span class="tl-tag tag-${item.category}">${tagMap[item.category]||item.category}</span>
-          ${hasMap ? '<span class="tl-tag tag-map">지도</span>' : ''}
+          ${hasMap ? '<span class="tl-tag tag-map">📍 지도</span>' : ''}
         </div>
       </div>
     `;
@@ -272,7 +306,7 @@ function openModal(item, day) {
 
   const mapBtnHtml = item.mapUrl
     ? `<a class="modal-map-btn" href="${item.mapUrl}" target="_blank" rel="noopener">
-        <span>📍</span> Google Maps에서 찾기
+        <span>📍</span> Google Maps에서 찾기 ✦
       </a>`
     : '';
 
