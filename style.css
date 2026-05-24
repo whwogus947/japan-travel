@@ -268,38 +268,76 @@ body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  background: var(--bg);
+  padding: 10px 12px 12px;
   border-bottom: 1.5px solid var(--border);
-  background: var(--bg2);
 }
 #day-tabs-wrap::-webkit-scrollbar { display: none; }
 #day-tabs {
   display: flex;
-  padding: 0 10px;
+  gap: 8px;
   min-width: max-content;
 }
+
+/* Per-day pastel accent colors */
+.tab:nth-child(1) { --tab-color: #b8d4f8; --tab-text: #3a5a8a; --tab-bg-active: linear-gradient(145deg, #cce0ff, #b8d4f8); }
+.tab:nth-child(2) { --tab-color: #a8e0c8; --tab-text: #2a6a4a; --tab-bg-active: linear-gradient(145deg, #c0f0da, #a8e0c8); }
+.tab:nth-child(3) { --tab-color: #f8c8d4; --tab-text: #8a3a5a; --tab-bg-active: linear-gradient(145deg, #ffddea, #f8c8d4); }
+.tab:nth-child(4) { --tab-color: #f8e0a0; --tab-text: #7a5a20; --tab-bg-active: linear-gradient(145deg, #fff0c0, #f8e0a0); }
+.tab:nth-child(5) { --tab-color: #d4c0f8; --tab-text: #5a38a0; --tab-bg-active: linear-gradient(145deg, #e8d8ff, #d4c0f8); }
+
 .tab {
-  padding: 10px 14px 8px;
+  padding: 9px 13px 10px;
   font-size: 11px; font-weight: 700;
   color: var(--text3);
   cursor: pointer;
-  border-bottom: 2.5px solid transparent;
   white-space: nowrap;
-  transition: color 0.2s, border-color 0.2s;
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, background 0.2s;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
   position: relative;
+  border-radius: 18px;
+  border: 2px solid transparent;
+  background: var(--surface);
+  min-width: 64px;
+  box-shadow: 0 1px 4px rgba(180,140,220,0.08);
 }
-.tab .tab-emoji {
-  font-size: 20px;
-  transition: transform 0.2s;
+.tab::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 16px;
+  border: 1.5px solid rgba(180,140,220,0.15);
+  pointer-events: none;
 }
-.tab.active .tab-emoji { transform: scale(1.2); }
-.tab .tab-day { font-size: 10px; letter-spacing: 0.02em; }
+
+.tab .tab-day { font-size: 10px; letter-spacing: 0.02em; color: var(--text2); }
 .tab .tab-date { font-size: 9px; color: var(--text3); }
+
 .tab.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  background: var(--tab-bg-active);
+  border-color: var(--tab-color);
+  color: var(--tab-text);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 14px rgba(180,140,220,0.22);
 }
+.tab.active::before { display: none; }
+.tab.active .tab-day  { color: var(--tab-text); opacity: 0.85; }
+.tab.active .tab-date { color: var(--tab-text); opacity: 0.7; }
+
+.tab:not(.active):active { transform: scale(0.96); }
+
 .tab.today .tab-date { color: var(--now-color); font-weight: 800; }
+.tab.today:not(.active) {
+  border-color: rgba(240,112,144,0.3);
+}
+.tab.today:not(.active)::after {
+  content: '';
+  position: absolute;
+  bottom: 6px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--now-color);
+  animation: cutePulse 1.8s ease-in-out infinite;
+}
 
 /* ── CONTENT ── */
 #content {
@@ -761,20 +799,26 @@ body {
 
 /* Tab chiikawa images */
 .tab-chiikawa-img {
-  width: 38px; height: 38px;
+  width: 40px; height: 40px;
   object-fit: contain;
   border-radius: 50%;
-  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), filter 0.2s, opacity 0.2s;
   filter: drop-shadow(0 2px 5px rgba(180,140,220,0.25));
   display: block;
   margin: 0 auto;
 }
 .tab.active .tab-chiikawa-img {
-  transform: scale(1.18) translateY(-2px);
+  transform: scale(1.15) translateY(-3px);
+  filter: drop-shadow(0 3px 8px rgba(180,140,220,0.4));
+  animation: tabImgBounce 2.4s ease-in-out infinite;
+}
+@keyframes tabImgBounce {
+  0%, 100% { transform: scale(1.15) translateY(-3px) rotate(-2deg); }
+  50%       { transform: scale(1.15) translateY(-6px) rotate(2deg); }
 }
 .tab:not(.active) .tab-chiikawa-img {
-  opacity: 0.7;
-  filter: saturate(0.7) drop-shadow(0 1px 3px rgba(180,140,220,0.15));
+  opacity: 0.6;
+  filter: saturate(0.5) drop-shadow(0 1px 3px rgba(180,140,220,0.1));
 }
 
 /* Day header chiikawa image */
