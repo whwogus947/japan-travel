@@ -79,6 +79,13 @@
 </div>
 
 <script src="chiikawa_imgs.js"></script>
+<script>
+  // Set splash image as soon as CHIIKAWA_IMGS is available
+  (function() {
+    var img = document.getElementById('splash-img');
+    if (img && window.CHIIKAWA_IMGS) img.src = CHIIKAWA_IMGS.img2;
+  })();
+</script>
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>

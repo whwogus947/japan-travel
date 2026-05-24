@@ -43,7 +43,26 @@ let activeDay = 0;
 let modalOpen = false;
 
 /* ── init ── */
+// Set splash image immediately (scripts already loaded before this runs)
+document.addEventListener('DOMContentLoaded', () => {
+  const splashImg = document.getElementById('splash-img');
+  if (splashImg && window.CHIIKAWA_IMGS) {
+    splashImg.src = CHIIKAWA_IMGS.img2;
+  } else if (splashImg) {
+    // Retry once scripts settle
+    setTimeout(() => {
+      if (window.CHIIKAWA_IMGS) splashImg.src = CHIIKAWA_IMGS.img2;
+    }, 100);
+  }
+});
+
 window.addEventListener('load', () => {
+  // Ensure splash image is set before hiding splash
+  const splashImg = document.getElementById('splash-img');
+  if (splashImg && window.CHIIKAWA_IMGS && !splashImg.src) {
+    splashImg.src = CHIIKAWA_IMGS.img2;
+  }
+
   setTimeout(() => {
     $('splash').style.display = 'none';
     $('app').classList.remove('hidden');
@@ -53,10 +72,6 @@ window.addEventListener('load', () => {
 });
 
 function init() {
-  // Set chiikawa images once loaded
-  const splashImg = document.getElementById('splash-img');
-  if (splashImg && window.CHIIKAWA_IMGS) splashImg.src = CHIIKAWA_IMGS.img2;
-
   const headerImg = document.getElementById('header-mascot-img');
   if (headerImg && window.CHIIKAWA_IMGS) headerImg.src = CHIIKAWA_IMGS.img2;
 

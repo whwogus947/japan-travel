@@ -47,7 +47,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 이동 · 체크인",
           detail: "숙소 체크인 & 짐 정리",
-          mapUrl: "https://maps.app.goo.gl/vj2sszskqTGBNdGL7",
+          mapUrl: "https://maps.app.goo.gl/vj2sszskqTGBNdGL7?g_st=ic",
           info: {
             label: "이동 정보",
             items: [
@@ -160,7 +160,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
+          mapUrl: "https://maps.app.goo.gl/vj2sszskqTGBNdGL7?g_st=ic",
           info: null
         }
       ]
@@ -316,7 +316,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
+          mapUrl: "https://maps.app.goo.gl/vj2sszskqTGBNdGL7?g_st=ic",
           info: null
         }
       ]
@@ -368,7 +368,7 @@ const TRIP = {
           icon: "🏨",
           title: "교토 숙소 체크인 & 짐 정리",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89?g_st=ic",
           info: null
         },
         {
@@ -523,7 +523,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 복귀",
           detail: "",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89?g_st=ic",
           info: null
         }
       ]
@@ -590,7 +590,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식 및 준비",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89?g_st=ic",
           info: null
         },
         {
@@ -680,7 +680,7 @@ const TRIP = {
           icon: "🏨",
           title: "숙소 휴식",
           detail: "",
-          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89",
+          mapUrl: "https://maps.app.goo.gl/775Uqne89CcXACk89?g_st=ic",
           info: null
         },
         {
