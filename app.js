@@ -379,9 +379,13 @@ function openModal(item, day) {
 
   const endTimeHtml = item.endTime ? ` → ${item.endTime}` : '';
 
+  const isDir = item.mapUrl && item.mapUrl.includes('/dir/');
+  const mapBtnLabel = item.category === 'transport'
+    ? '🗺️ 길찾기 ✦'
+    : '📍 Google Maps에서 찾기 ✦';
   const mapBtnHtml = item.mapUrl
     ? `<a class="modal-map-btn" href="${item.mapUrl}" target="_blank" rel="noopener">
-        <span>📍</span> Google Maps에서 찾기 ✦
+        ${mapBtnLabel}
       </a>`
     : '';
 

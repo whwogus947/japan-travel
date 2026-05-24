@@ -128,7 +128,7 @@ const TRIP = {
           icon: "🚃",
           title: "온천 → 숙소 복귀",
           detail: "이동 후 이자카야 출발",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&destination=34.6656,135.5012&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
@@ -334,7 +334,7 @@ const TRIP = {
           icon: "🚃",
           title: "오사카 → 교토 이동",
           detail: "JR 신쾌속 약 50~60분",
-          mapUrl: "https://maps.google.com/maps?q=교토역",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&origin=Namba+Station+Osaka&destination=Kyoto+Station&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
@@ -442,7 +442,7 @@ const TRIP = {
           icon: "🚌",
           title: "오하라 → 교토 시내 복귀",
           detail: "버스/JR 약 40분",
-          mapUrl: "https://maps.google.com/maps?q=교토역",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&origin=Ohara+Kyoto&destination=Kyoto+Station&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
@@ -575,7 +575,7 @@ const TRIP = {
           icon: "🚍",
           title: "숙소 복귀",
           detail: "버스 약 35~40분",
-          mapUrl: "https://maps.google.com/maps?q=난바+오사카",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&destination=34.9858,135.7588&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
@@ -665,7 +665,7 @@ const TRIP = {
           icon: "🚃",
           title: "오미하치만 → 교토 숙소 복귀",
           detail: "JR 약 1시간 20분",
-          mapUrl: "https://maps.google.com/maps?q=교토역",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&origin=Omihachiman+Station&destination=34.9858,135.7588&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
@@ -731,7 +731,7 @@ const TRIP = {
           icon: "🚃",
           title: "교토 → 오사카 출발",
           detail: "JR 신쾌속 약 50~60분",
-          mapUrl: "https://maps.google.com/maps?q=오사카역",
+          mapUrl: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Osaka+Station&travelmode=transit",
           info: {
             label: "이동 정보",
             items: [
